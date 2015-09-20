@@ -1,0 +1,2 @@
+defmodule FFI do
+end

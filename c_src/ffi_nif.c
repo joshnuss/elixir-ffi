@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <erl_nif.h>
 #include <ffi.h>
+#include <dlfcn.h>
 
 #define MAXLEN 1024
 
@@ -11,13 +12,29 @@ enum {
   INT
 } TYPE;
 
-static void call(int argc, ffi_type **args, void **values, ffi_type* returnType) {
+static void call(char *library, char *function, int argc, ffi_type **args, void **values, ffi_type* returnType) {
   ffi_cif cif;
   int returnValue;
+  void* handle;
+  void* (*fn);
+
+  handle = dlopen(library, RTLD_LAZY);
+
+  if (!handle) {
+    return;
+  }
+
+  fn = dlsym(handle, function);
+
+  if (dlerror() != NULL) {
+    return;
+  }
 
   if (ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argc, returnType, args) == FFI_OK) {
-    ffi_call(&cif, (void*)puts, &returnValue, values);
+    ffi_call(&cif, (void*)fn, &returnValue, values);
   }
+
+  dlclose(handle);
 }
 
 static ERL_NIF_TERM nif_call(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
@@ -120,11 +137,9 @@ static ERL_NIF_TERM nif_call(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]
       break;
   }
 
-  printf("%s.%s() %d %d\n", library, function, argumentsLength, returnType);
+  call(library, function, argumentsLength, ffiArgs, ffiValues, ffiReturnType);
 
-  call(argumentsLength, ffiArgs, ffiValues, ffiReturnType);
-
-  returnValue = 100;
+  returnValue = 1;
 
   return enif_make_int(env, returnValue);
 }

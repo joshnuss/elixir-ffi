@@ -2,13 +2,6 @@ defmodule FFI.Library do
   defmacro __using__(_x) do
     quote do
       import FFI.Library
-
-      def start_link(args \\ []) do
-        GenServer.start_link(__MODULE__, :init, [])
-      end
-
-      def init(state),
-        do: {:ok, state}
     end
   end
 

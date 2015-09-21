@@ -6,6 +6,4 @@ defmodule MyLib do
   attach_function :puts, [:string], :int
 end
 
-{:ok, pid} = MyLib.start_link
-
-MyLib.puts(pid, "Hello world")
+IO.inspect MyLib.puts("Hello world")

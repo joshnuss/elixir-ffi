@@ -19,6 +19,19 @@ end
 MyLib.puts(["Hello world"])
 ```
 
+## Installation
+
+```shell
+hub clone joshnuss/elixir-ffi
+make
+```
+
+## Running Examples
+
+```shell
+iex run examples/basic.exs
+```
+
 ## License
 
 MIT

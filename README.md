@@ -1,7 +1,7 @@
 FFI
 ===
 
-An easy way to call external functions (e.g. C functions) from Elixir.
+An easy way to call external functions (e.g. C functions) from [Elixir](https://github.com/elixir-lang/elixir).
 
 ** This is alpha software **
 

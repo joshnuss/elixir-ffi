@@ -30,7 +30,7 @@ make
 ## Running Examples
 
 ```shell
-iex run examples/basic.exs
+mix run examples/basic.exs
 ```
 
 ## License

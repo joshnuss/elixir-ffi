@@ -23,6 +23,7 @@ MyLib.puts(["Hello world"])
 
 ```shell
 hub clone joshnuss/elixir-ffi
+cd elixir-ffi
 make
 ```
 

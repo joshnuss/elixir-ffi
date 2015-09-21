@@ -3,6 +3,8 @@ FFI
 
 An easy way to call external functions (e.g. C functions) from Elixir.
 
+** This is alpha software **
+
 ## Example Program
 
 ```elixir

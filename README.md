@@ -3,6 +3,8 @@ FFI
 
 An easy way to call external functions (e.g. C functions) from [Elixir](https://github.com/elixir-lang/elixir).
 
+Inspired by [Ruby's FFI](https://github.com/ffi/ffi)
+
 ** This is alpha software **
 
 ## Example Program

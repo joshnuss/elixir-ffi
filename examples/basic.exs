@@ -6,4 +6,4 @@ defmodule MyLib do
   attach_function :puts, [:string], :int
 end
 
-IO.inspect MyLib.puts("Hello world")
+IO.inspect MyLib.puts(["Hello world"])

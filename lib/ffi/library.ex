@@ -21,15 +21,15 @@ defmodule FFI.Library do
 
   defmacro attach_function(name, arguments, return_type) do
     quote do
-      def unquote(name)(pid, x) do
-        args = {unquote(name), x}
+      def unquote(name)(pid, params) do
+        args = {unquote(name), params}
 
         GenServer.call(pid, args)
       end
 
-      def handle_call({unquote(name), x}, _from, state) do
+      def handle_call({unquote(name), params}, _from, state) do
         IO.puts ffi_lib
-        a = IO.puts(x)
+        a = IO.puts(params)
         {:reply, a, state}
       end
     end

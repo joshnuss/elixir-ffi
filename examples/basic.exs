@@ -1,9 +1,9 @@
 defmodule MyLib do
   use FFI.Library
 
-  ffi_lib "c"
+  ffi_lib "libstdc++.so.6"
 
   attach_function :puts, [:string], :int
 end
 
-IO.inspect MyLib.puts(["Hello world"])
+MyLib.puts(["Hello World from C stdlib"])

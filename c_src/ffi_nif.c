@@ -144,8 +144,12 @@ static ERL_NIF_TERM nif_call(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]
   return enif_make_int(env, returnValue);
 }
 
+int upgrade(ErlNifEnv* env, void** priv_data, void** old_priv_data, ERL_NIF_TERM load_info) {
+  return 0;
+}
+
 static ErlNifFunc nif_funcs[] = {
   {"nif_call", 5, nif_call}
 };
 
-ERL_NIF_INIT(Elixir.FFI, nif_funcs, NULL, NULL, NULL, NULL)
+ERL_NIF_INIT(Elixir.FFI, nif_funcs, NULL, NULL, upgrade, NULL)

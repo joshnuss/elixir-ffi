@@ -5,6 +5,7 @@ defmodule FFI.Mixfile do
     [app: :ffi,
      version: "0.0.1",
      elixir: "~> 1.0",
+     compilers: [:elixir_make] ++ Mix.compilers,
      deps: deps]
   end
 
@@ -25,6 +26,6 @@ defmodule FFI.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [{:elixir_make, "~> 0.1.0"}]
   end
 end

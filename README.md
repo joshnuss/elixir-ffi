@@ -23,10 +23,12 @@ MyLib.puts(["Hello World from C stdlib"])
 
 ## Installation
 
-```shell
-hub clone joshnuss/elixir-ffi
-cd elixir-ffi
-make
+The package can be installed by adding elixir-ffi to your list of dependencies in mix.exs:
+
+```elixir
+def deps do
+  [{:ffi, git: "https://github.com/joshnuss/elixir-ffi.git"}]
+end
 ```
 
 ## Running Examples

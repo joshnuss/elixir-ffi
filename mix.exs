@@ -4,6 +4,12 @@ defmodule FFI.Mixfile do
   def project do
     [app: :ffi,
      version: "0.0.1-alpha",
+     description: "Foreign Function Interface",
+     package: [
+       maintainers: ["Joshua Nussbaum"],
+       licenses: ["MIT"],
+       links: %{github: "https://github.com/joshnuss/elixir-ffi"}
+     ],
      elixir: "~> 1.2",
      compilers: [:elixir_make] ++ Mix.compilers,
      deps: deps]

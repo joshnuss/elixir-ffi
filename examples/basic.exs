@@ -1,7 +1,5 @@
 defmodule MyLib do
-  use FFI.Library
-
-  ffi_lib "libstdc++.so.6"
+  use FFI.Library, name: "libstdc++.so.6"
 
   attach_function :puts, [:string], :int
 end

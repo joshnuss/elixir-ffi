@@ -6,4 +6,4 @@ defmodule MyLib do
 end
 
 MyLib.puts("Hello World from C stdlib")
-MyLib.printf("Random number: %d", :random.uniform(10))
+MyLib.printf("Random number: %d\n", :random.uniform(10))

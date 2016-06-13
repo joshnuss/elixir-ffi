@@ -16,7 +16,7 @@ defmodule MyLib do
   attach_function :puts, [:string], :int
 end
 
-MyLib.puts(["Hello World from C stdlib"])
+MyLib.puts("Hello World from C stdlib")
 ```
 
 ## Installation

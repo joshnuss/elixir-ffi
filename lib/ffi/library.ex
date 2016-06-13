@@ -1,14 +1,9 @@
 defmodule FFI.Library do
-  defmacro __using__(_x) do
+  defmacro __using__([name: name]) do
     quote do
       import FFI.Library
-    end
-  end
 
-  defmacro ffi_lib(name) do
-    quote do
-      def ffi_lib,
-        do: unquote(name)
+      def ffi_lib, do: unquote(name)
     end
   end
 

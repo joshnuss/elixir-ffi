@@ -3,7 +3,7 @@ defmodule FFI.Mixfile do
 
   def project do
     [app: :ffi,
-     version: "0.0.1",
+     version: "0.0.1-alpha",
      elixir: "~> 1.2",
      compilers: [:elixir_make] ++ Mix.compilers,
      deps: deps]

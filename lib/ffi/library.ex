@@ -3,7 +3,7 @@ defmodule FFI.Library do
     quote do
       import FFI.Library
 
-      def ffi_lib, do: unquote(name)
+      def __lib_name__, do: unquote(name)
     end
   end
 
@@ -12,7 +12,7 @@ defmodule FFI.Library do
 
     quote do
       def unquote(name)(unquote_splicing(argument_names)) do
-        definition = {ffi_lib,
+        definition = {__lib_name__,
                       unquote(name),
                       unquote(arguments),
                       unquote(return_type)}

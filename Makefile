@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=
+CFLAGS=-fPIC
 OBJ = ffi_nif.o
 TARGET = ffi_nif.so
 LIBS += -ldl -lffi

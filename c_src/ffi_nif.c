@@ -33,8 +33,6 @@ static void call(char *library, char *function, int argc, ffi_type **args, void 
   if (ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argc, returnType, args) == FFI_OK) {
     ffi_call(&cif, (void*)fn, &returnValue, values);
   }
-
-  dlclose(handle);
 }
 
 static ERL_NIF_TERM nif_call(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
